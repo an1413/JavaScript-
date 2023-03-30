@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        
+        let txt = 'abcdefghij'
+
+        console.log(txt.slice(1,3))
+        console.log(txt.slice(1)) //첫번째 부터 마지막값까지!!
+
+        console.log(txt.slice(3,1)) // 안됩니다!
+        console.log(txt.slice(2,-1)) // 안됩니다!
+
+        //substring (시작인덱스, 종료 인덱스) : 시작인덱스부터 종료인덱스 - 1번째 까지 반환합니다.
+        console.log(txt.substring(1,3))
+        console.log(txt.substring(3,1))  // 얘는 반대도 가능하다!
+        console.log(txt.substring(1))
+        console.log(txt.substring(txt.length-1)) // 얘는 3부터 가능!
+
+        let txt2 = 'nastarlab CEO annabyeol CEO'
+        console.log(txt2)
+        let txt3 = txt2.replace('CEO','PRI')
+        console.log(txt3)
+        console.log(txt2.replaceAll('CEO','ANB'))
+
+        console.log(txt2.toLowerCase())
+        console.log(txt2.toUpperCase())
+
+        //많이 사용됩니다. 특히 알고리즘 문제에서요! include
+        console.log(txt2.includes('CEO'))  //True   - boolean 값 나옴
+        console.log(txt2.includes('Work'))  // False   - boolean 값 나옴
+
+        //메서드 채이닝
+        console.log(txt2.replace('CEO', 'CD0').includes('CD0').toString()
+        .toUpperCase())
+
+        //어디서나 정말 많이 사용되는 메서드 입니다.
+        console.log(txt2.split(' '))
+
+        let text1 = 'aa bb cc dd'
+        let text2 = 'aa-bb-cc-dd'
+        let text3 = 'aa,bb,cc,dd'
+        let text4 = 'aa,bb-cc-dd'
+
+        console.log(text1.split(' '))
+        console.log(text2.split('-'))
+        console.log(text3.split(','))
+        console.log(text4.replace(',','-').split('-'))
+        
+
+        //자주 사용되지 않지만, 이걸 몰라서 직접 구현하면 번거로운 메서드
+        //trim
+        let test = '                      hello world'
+        console.log('                hello world')
+        console.log(test.replaceAll(' ',''))
+        console.log(test.trim())
+
+        // let str1 = '99'
+        // console.log(str1.padStart())
+
+    </script>
+</body>
+</html>
+    
