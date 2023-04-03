@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        let name;
+        let age;
+
+        function User(name, age){
+            this.name = name;
+            this.age = age;
+        }         
+
+        const user = {
+            id : 2018,
+            age : 15
+        }
+
+        const money = {
+            have : 1000000
+        }
+
+        const hi = {
+            hi : 'hi'
+        }
+
+
+        // const new_user = user;
+
+        // console.log(user);
+        // console.log(new_user);
+
+        const new_user = Object.assign({}, user)
+        console.log(new_user);
+        new_user.age = 10;
+
+        const All_user = Object.assign({}, user, money);
+        console.log(All_user)
+
+        const new_new = Object.assign({}, All_user, hi)
+        console.log(new_new)
+
+        const Nastar = Object.keys(All_user)
+        console.log(Nastar)
+        const NaNa = Object.values(All_user)
+        console.log(NaNa)
+        
+
+
+        if(user == new_user) {
+            console.log(true);
+        }
+
+        let person1 = new User('Nastar',25);
+        let person2 = new User('HyoJeong',26);
+
+        console.log(person1);
+        console.log(person2);
+
+
+    </script>
+</body>
+</html>
+    
