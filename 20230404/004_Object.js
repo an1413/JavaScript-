@@ -8,6 +8,8 @@ const human = {
     0: '01093491403'
 }
 
+human.hasOwnProperty(from)
+
 console.log(human.name);
 console.log(human.age);
 console.log(human['name']);

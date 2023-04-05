@@ -21,6 +21,8 @@ arr2.filter(function(el) {
 // 모음 제거
 Array.from('hello world').filter(v => !["a", "e", "i", "o", "u"].includes(v))
 
+Array.from('hello world').filter(v => !["a", "e", "i", "o", "u"].includes(v))
+
 // reduce
 const arr = [1, 2, 3, 4, 5, 6]
 arr.reduce((a,c) => a + c, 0)
