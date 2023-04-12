@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <style>
+            .canvas {
+                margin: 0 auto;
+                width: 500px;
+                height: 500px;
+                background: black;
+                margin-bottom: 50px;
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                gap: 70px;
+                list-style: none;
+            }
+
+            .yellow {
+                background: yellow;
+            }
+
+            .green {
+                background: green;
+            }
+
+            .blue {
+                background: blue;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="canvas"></div>
+
+        <ul>
+            <li>
+                <button class="btn-yellow" type="button">노랑</button>
+            </li>
+            <li>
+                <button class="btn-green" type="button">초록</button>
+            </li>
+            <li>
+                <button class="btn-blue" type="button">파랑</button>
+            </li>
+        </ul>
+
+        <script>
+            const canvas = document.querySelector(".canvas");
+            // const canvas = document.querySelector('.canvas'),
+            //     btn_green = document.querySelector('.btn-green'),
+            //     btn_yellow = document.querySelector('.btn-yellow'),
+            //     btn_blue = document.querySelector('.btn-blue');
+
+            const btns = document.querySelectorAll("button[class^='btn']")
+
+            btns.forEach(element => {
+                element.addEventListener('click', function () {
+                    canvas.classList.remove('yellow', 'blue', 'green');
+                    if (element.classList.contains('btn-yellow')) {
+                        canvas.classList.add('yellow');
+                    }
+                    else if (element.classList.contains('btn-green')) {
+                        canvas.classList.add('green');
+                    }
+                    else {
+                        canvas.classList.add('blue');
+                    }
+                })
+            });
+
+
+            // btn_green.addEventListener('click', function () {
+            //     canvas.classList.remove('green', 'yellow', 'blue')
+            //     canvas.classList.add('green')
+            // })
+
+            // btn_blue.addEventListener('click', function () {
+            //     canvas.classList.remove('green', 'yellow', 'blue')
+            //     canvas.classList.add('blue')
+            // })
+
+            // btn_yellow.addEventListener('click', function () {
+            //     canvas.classList.remove('green', 'yellow', 'blue')
+            //     canvas.classList.add('yellow')
+            // })
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,32 @@
+var element = {
+
+    addEventListener : function(????) {
+        ????
+                ????
+                ???
+                ??
+    }
+}
+
+const Math = {
+    floor : function ???
+    abs :function abs(??) {
+        ????????
+        ???
+    }
+    ceil : function (???) {
+        ???
+        ???
+        ???
+    }
+
+
+}
+addEventListener 
+
+
+Math.ceil(24.13);
+
+Math.floor()
+
+console.log(element.addEventListener); // 1

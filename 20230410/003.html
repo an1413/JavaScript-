@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>change-color</title>
+        <style>
+            .box {
+                width: 400px;
+                height: 400px;
+                background: #000;
+                margin: 0 auto;
+                margin-bottom: 50px;
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                gap: 70px;
+            }
+
+            .red {
+                background-color: red;
+            }
+
+            .yellow {
+                background-color: yellow;
+            }
+
+            .green {
+                background-color: green;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="box">
+
+        </div>
+
+        <ul>
+            <li>
+                <button class="red-btn" type="button">
+                    빨강
+                </button>
+            </li>
+            <li>
+                <button class="yellow-btn" type="button">
+                    노랑
+                </button>
+            </li>
+            <li>
+                <button class="green-btn" type="button">
+                    초록
+                </button>
+            </li>
+        </ul>
+        <script>
+
+            // const canvas = document.querySelector(".canvas");
+            // btnRed = document.querySelector('.btn-red'),
+            // btnYellow = document.querySelector('.btn-yellow'),
+            // btnGreen = document.querySelector('.btn-green');
+
+            const btns = document.querySelectorAll("button[class^='btn']");
+
+            // const btnArry = [btnRed, btnYellow, btnGreen];
+
+            btns.forEach((item) => {
+                item.addEventListener('click', () => {
+                    canvas.classList.remove('yellow', 'red', 'green');
+                    if (item.classList.contains("btn-red")) {
+                        canvas.classList.add('red');
+                    } else if (item.classList.contains("btn-yellow")) {
+                        canvas.classList.add('yellow');
+                    } else {
+                        canvas.classList.add('green');
+                    }
+                });
+            })
+
+            // btnYellow.addEventListener('click', () => {
+            //     canvas.classList.remove('yellow', 'red', 'green');
+            //     canvas.classList.add('yellow');
+            // });
+            // btnGreen.addEventListener('click', () => {
+            //     canvas.classList.remove('yellow', 'red', 'green');
+            //     canvas.classList.add('green');
+            // });
+            // 재현님 코드
+
+            // const container = document.getElementsByTagName('div')
+            // console.log(container);
+            // const mybox = document.querySelector('.box');
+
+            // const btnr = document.querySelector('.red-btn');
+            // const btny = document.querySelector('.yellow-btn');
+            // const btng = document.querySelector('.green-btn');
+
+            // console.log(btnr);
+            // btnr.addEventListener('click', function () {
+            //     mybox.classList.toggle('red');
+            // });
+            // btnr.addEventListener('click', function () {
+            //     mybox.classList.toggle('yellow');
+            // });
+
+            // btnr.addEventListener('click', function () {
+            //     mybox.classList.toggle('green');
+            // });
+
+            const box = document.querySelector('div');
+            const colorBtn = document.querySelectorAll('button');
+
+            for (let i = 0; i < colorBtn.length; i++) {
+                colorBtn[i].addEventListener('click', function () {
+                    box.classList.toggle(colorBtn[i].className.slice(4))
+                })
+            }
+        </script>
+    </body>
+
+</html>
