@@ -116,4 +116,64 @@ function runPython({
     lv = 0 }) {
 }
 
+function 함수({
+    a = 1,
+    b = 2,
+    c = 3
+} = {}){
+    console.log(a, b,c);
+    return a + b + c
+}
 
+함수()
+함수({})
+함수({ b: 100})
+
+
+// 재귀함수는요 ! 내가 나를 호출하는 것입니다.
+// 반복문으로 반복할 수 잇는 것은 재귀함수로 만들 수 있습니다.a재귀함수로 만들 수 있는 것은 반복문으로도 만들 수 있습니다.a
+// 실무에서는 반복문 사용하시길 권해드립니다.
+// 1. factorial에대한 예제 입니다.
+// 5! = 5 * 4 * 3 * 2 * 1
+result = 1
+for(let i = 2; i < 6; i++) {
+    result *= i
+}
+result
+
+function factorial(n) {
+    if(n <= 1) {
+        return n;
+    }
+    return n * factorial(n-1)
+}
+factorial(5)
+
+function sigma(n) {
+    if(n <= 1){
+        return n;
+    }
+    return n + sigma(n-1)
+}
+
+// 문자열 뒤집는 것
+result = ''
+for(const i of 'hello world'){
+    result = result + i
+}
+result
+
+result = ''
+for(const i of 'hello world'){
+    result = i + result
+}
+result
+// 'h' + '' // 1번째 순회
+// 'e' + 'h' // 2번째 순회
+// 'l' + 'eh' // 3번째 순회
+
+result = ''
+for(const i of 'hello world'){
+    result = i + result
+}
+result
