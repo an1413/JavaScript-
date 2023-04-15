@@ -1,0 +1,38 @@
+:root {
+    --gap:20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box {
+    background-color: antiquewhite;
+    height: 100vh;
+    padding: var(--gap);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.box-contents,
+.box-header,
+footer {
+    background-color: #fff;
+    padding: var(--gap);
+}
+
+.box-header {
+    min-height: 120px;
+}
+
+.box-contents {
+    flex-grow: 1;
+    min-height: 0;
+    overflow: auto;
+}
+
+
+
