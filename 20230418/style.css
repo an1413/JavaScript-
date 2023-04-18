@@ -1,0 +1,46 @@
+#app {
+    height: 100vh;
+    width: 100vw;
+    perspective: 1600px;
+}
+
+.list-item {
+    position: fixed;
+    width: 340px;
+    height: 400px;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(32deg);
+    /*-webkit-transform: translate(-50%, -50%) rotateY(32deg);
+    -moz-transform: translate(-50%, -50%) rotateX(32deg);
+    -ms-transform: translate(-50%, -50%) rotateX(32deg);
+    -o-transform: translate(-50%, -50%) rotateX(32deg);
+    */
+    /* -webkit-transform: translate(-50%, -50%) rotateX(32deg); */
+}
+
+.list-item li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #BDBDBD;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    list-style: none;
+}
+
+.list-item li {
+    
+} 
+
+.list-item img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
