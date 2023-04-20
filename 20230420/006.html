@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+    </head>
+
+    <body>
+        <script>
+            // 1. 할것 객체
+            class Todo {
+                constructor(item, finishied) {
+                    this.item = item;
+                    this.finishied = finishied;
+                }
+
+                changeState() {
+                    this.finishied = !this.finishied;
+                }
+            }
+
+            class TodoManager {
+                constructor() {
+                    this.todoList = [];
+                }
+
+                addItem(item, finishied = false) {
+                    const todo = new Todo(item, finishied);
+                    this.todoList.push(todo);
+                }
+
+                getItems() {
+                    return this.todoList;
+                }
+
+                getLeftTodoCount() {
+                    return this.todoList.filter(list => !list.state).length;
+                }
+
+            }
+
+            return this.todoList.filter((item) => !item.finished).length;
+            const todoManager = new TodoManager();
+            const todo1 = new Todo('청소하기', false);
+            const todo2 = new Todo('운동하기', true);
+            const todo3 = new Todo('점심먹기', false);
+            const todo4 = new Todo('웃어보기', true)
+            todo4.changeState()
+
+            todoManager.addItem(todo1);
+            todoManager.addItem(todo2);
+            todoManager.addItem(todo3);
+            todoManager.addItem(todo4);
+
+
+            console.log(todoManager);
+            console.log(todoManager.getItems());
+            console.log(todoManager.getLeftTodoCount());
+        </script>
+
+    </body>
+
+</html>

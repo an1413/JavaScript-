@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="ko">
 
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
+        <title>Document</title>
     </head>
 
     <body>
@@ -14,11 +14,12 @@
         </form>
 
         <script>
+            confirm("선택해주세요");
             const submit = document.querySelector('.submit');
             submit.addEventListener('click', (event) => {
                 console.log('clicked');
                 event.preventDefault();
-                // event.stopPropagation();
+                event.stopPropagation();
             });
 
             document.body.addEventListener('click', () => {
@@ -26,29 +27,31 @@
             });
         </script>
 
-        <!-- 앵커의 기본 동작을 중지 -->
         <!-- <a href="https://www.naver.com" class="link">네이버 링크입니다만..</a>
-        <script>
-            const link = document.querySelector('.link');
-            link.addEventListener('click', (event) => {
-                console.log('clicked');
-                event.preventDefault();
-            })
-        </script> -->
+    <script>
+        const link = document.querySelector('.link');
+        link.addEventListener('click', (event) => {
+            console.log('clicked');
+            event.preventDefault();
+        })
+    </script> -->
 
-        <!-- submit 의 기본 동작을 중지 -->
         <!-- <form action="">
-            <button type="submit" class="submit">제출</button>
-        </form>
-        <script>
-            const submit = document.querySelector('.submit');
-            submit.addEventListener('click', (event) => {
-                console.log('clicked');
-                event.preventDefault();
-            })
-        </script> -->
+        <button type="submit" class="submit">제출</button>
+    </form>
+    <script>
+        // const submit = document.querySelector('.submit');
+        // submit.addEventListener('click', (event) => {
+        //     console.log('clicked');
+        //     event.preventDefault();
+        // })
+        document.addEventListener('contextmenu', (event) => {
+            console.log('오른쪽 클릭!');
+            event.preventDefault();
+            alert('오른쪽 클릭을 지원하지 않습니다!');
+        });
+    </script> -->
+
     </body>
 
 </html>
-<!-- evet.preventDefault() ~~를 하지 못하게 막다 !!  막아버려야지!! event 발생을 막아버리쟈~~ 
- submit이 되버리면 기본적인 동작을 막는다~~ -->

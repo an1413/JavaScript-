@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+    </head>
+
+    <body>
+        <script>
+
+            const me = {
+                name: '나별',
+                age: 25,
+                address: '경기도 수원시 장안구',
+                phoneNum: '010-1924-1111',
+                canWalk: function () {
+                    console.log('나별이가 걷는다.')
+                },
+                teaching: function (myStudent) {
+                    myStudent.levelUp();
+                }
+            }
+
+            const student = {
+                level: 1,
+                levelUp: function () {
+                    this.level++;
+                }
+            }
+
+            me.teaching(student);
+
+            // function NewFactory(name) {
+            //     this.name = name;
+            //     this.sayYourName = function () {
+            //         console.log(`제 이름은 ${this.name}입니다. 주인님`);
+            //     }
+            // }
+
+            // let robot = new NewFactory('재헌');
+            // console.log(robot.sayYourName());
+
+            // const robot2 = new NewFactory("호준");
+            // robot2.name
+            // console.log(robot2.name);
+
+        </script>
+
+    </body>
+
+</html>

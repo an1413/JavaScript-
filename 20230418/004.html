@@ -16,24 +16,43 @@
 
 
         <script>
-            const content = document.querySelectorAll('p');
-            const btnDelete = document.querySelectorAll('button');
 
-            content.forEach((item) => {
-                item.addEventListener('click', () => {
-                    alert(item.textContent.slice(0, -2));
+
+            const btn = document.querySelectorAll('button'); // button을 전부 선택
+            const p = document.querySelectorAll('p') // p도 전부선택한다 !
+
+            p.forEach(el => {      // p를 순회돌거야~! 값은 element (el로 가리켰구나)
+                el.addEventListener('click', () => {    // 순회중 클릭한 el에 도착하면, el의 텍스트를 alert발생
+                    alert(el.textContent.slice(0, -2))
                 })
             })
+            btn.forEach(el => {
+                el.addEventListener('click', (e) => { // 순회도는 도중 btn을 클릭하면! 
 
-            btnDelete.forEach((item) => {
-                item.addEventListener('click', (e) => {
-                    let answer = confirm("삭제할것입니까?");
-                    if (answer === true) {
-                        e.target.closest('p').remove();
+                    if (confirm('삭제할검니가?')) {
+                        el.parentElement.remove()
+                        e.stopPropagation()
                     }
                 })
             })
 
+                        // const content = document.querySelectorAll('p');
+            // const btnDelete = document.querySelectorAll('button');
+
+            // content.forEach((item) => {
+            //     item.addEventListener('click', () => {
+            //         alert(item.textContent.slice(0, -2));
+            //     })
+            // })
+
+            // btnDelete.forEach((item) => {
+            //     item.addEventListener('click', (e) => {
+            //         let answer = confirm("삭제할것입니까?");
+            //         if (answer === true) {
+            //             e.target.closest('p').remove();
+            //         }
+            //     })
+            // })
 
         </script>
     </body>
