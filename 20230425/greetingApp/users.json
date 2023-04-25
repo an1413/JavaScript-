@@ -1,0 +1,16 @@
+{
+    "user" : [
+        {
+            "userName" : "nabyeol",
+            "password" : "star"
+        },
+        {
+            "userName" : "hyojeong",
+            "password" : "grape"
+        },
+        {
+            "userName" : "hajun",
+            "password" : "poketmon"
+        }
+    ]
+}

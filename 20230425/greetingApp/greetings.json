@@ -1,0 +1,16 @@
+{
+    "greetings" : [
+        {
+            "userName" : "nabyeol",
+            "greeting" : "반짝반짝 환영합니다."
+        },
+        {
+            "userName" : "hyojeong",
+            "greeting" : "볼수록 매력있네요."
+        },
+        {
+            "userName" : "hajun",
+            "greeting" : "반가워 피카~~"
+        }
+    ]
+}
