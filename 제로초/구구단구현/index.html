@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>99dan</title>
+    </head>
+
+    <body>
+
+
+        <script>
+            let num1 = Math.floor(Math.random() * 9) + 1
+            let num2 = Math.floor(Math.random() * 9) + 1
+            let result = num1 * num2; // 결과 값
+
+            let boo = true;
+
+            console.log(num1);
+            console.log(num2);
+            while (boo) {
+                let yourResult = prompt(`${num1} * ${num2}의 값은? `)
+                if (result == yourResult) {
+                    alert('딩동댕')
+                    boo = false
+                }
+                else {
+                    alert('틀렸습니다!')
+                }
+            }
+            console.log('수고하셨습니다.');
+
+
+        </script>
+
+    </body>
+
+</html>

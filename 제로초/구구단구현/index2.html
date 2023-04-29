@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+    </head>
+
+    <body>
+
+        <!-- <div>9 * 3은 ?</div>
+        form
+                <input type="text">27
+                <button>제출</button>
+        form
+
+        <div>정답 or 틀림</div> -->
+
+        <script>
+            var num1 = Math.ceil(Math.random() * 9);
+            var num2 = Math.ceil(Math.random() * 9);
+            // var ranQ = `${num1} * ${num2}의 값은??`;
+            var answer = num1 * num2;
+
+            const body = document.querySelector('body');
+            const question = document.createElement('div');
+            question.textContent = `${num1} * ${num2}의 값은 ?`
+            const form = document.createElement('form');
+            const input = document.createElement('input');
+            const btn = document.createElement('button');
+            btn.innerText = '입력'
+
+            const result = document.createElement('div');
+
+            body.append(question);
+            body.append(form);
+            form.append(input, btn);
+            body.append(result);
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (answer === Number(input.value)) {
+                    result.textContent = '정답입니다.';
+                    num1 = Math.ceil(Math.random() * 9);
+                    num2 = Math.ceil(Math.random() * 9);
+                    answer = num1 * num2
+                    question.textConent = `${num1} * ${num2}의 값은 ?`;
+                    input.value = '';
+                    input.focus();
+                }
+                else {
+                    result.textContent = '땡';
+                    input.value = '';
+                    input.focus();
+                }
+            })
+
+
+        </script>
+
+    </body>
+
+</html>

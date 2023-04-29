@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+body {
+    /* margin: 0 auto; */
+}
+
+.active {
+    background-color: #000;
+}
+
+.container {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.canvas {
+    margin-bottom: 30px;
+    width: 400px;
+    height: 400px;
+    /* background-color: #000; */
+}
+
+.select-color {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <style>
+        </style>
+    </head>
+
+    <body>
+
+        <!-- <div>제로초</div>
+        <input type="text">
+        <button></button>
+        <div>딩동댕 or 땡</div> -->
+
+
+        <script>
+            const body = document.querySelector('body');
+            console.log(body);
+
+            const btn = document.createElement('button');
+            const form = document.createElement('form');
+            const input = document.createElement('input');
+            const word = document.createElement('div');
+            const result = document.createElement('div');
+            word.textContent = '제로초';
+            btn.innerHTML = '입력';
+
+
+            body.append(word);
+            body.append(form);
+            form.append(input, btn);
+            body.append(result);
+
+
+
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (input.value[0] === word.textContent[word.textContent.length - 1]) {
+                    result.textContent = '딩동댕'
+                    word.textContent = input.value;
+                    input.focus();
+                }
+                else {
+                    result.textContent = '땡';
+                }
+                input.value = '';
+            })
+
+
+
+
+            // let word = '제로초'
+            // while (true) {
+            //     let answer = prompt(word); // 정답 !
+            //     if (word[word.length - 1] === answer[0]) {
+            //         console.log('딩동댕 정답입니다.');
+            //         word = answer;
+
+            //     }
+            //     else {
+            //         console.log('틀렸습니다!');
+
+            //     }
+            // }
+
+        </script>
+
+    </body>
+
+</html>

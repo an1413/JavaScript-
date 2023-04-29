@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>색깔 선택하기</title>
+        <link rel="stylesheet" href="./reset.css">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="canvas">
+
+            </div>
+
+            <ul class="select-color">
+                <li>
+                    <button class="btn-1">
+                        빨강
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-2">
+                        노랑
+                    </button>
+                </li>
+                <li>
+                    <button class="btn-3">
+                        초록
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <script>
+            const canvas = document.querySelector('.canvas');
+            const buttons = document.querySelectorAll('button');
+            const color = ['red', 'yellow', 'green'];
+            const selectColor = document.querySelector('.select-color');
+            console.log(selectColor);
+            let currentBtn; // 현재 활성화된 버튼.
+            // 2번째 방법
+
+            selectColor.addEventListener('click', function (e) {
+                const et = e.target;
+                console.log(et);
+                canvas.classList.remove('red', 'yellow', 'green');
+                if (et.classList.contains('btn-1')) {
+                    canvas.classList.add('red');
+                }
+                else if (et.classList.contains('btn-2')) {
+                    canvas.classList.add('yellow');
+                }
+                else if (et.classList.contains('btn-3')) {
+                    canvas.classList.add('green');
+                }
+
+            })
+
+            // buttons.forEach((item) => {
+
+            //     item.addEventListener('click', function () {
+            //         canvas.classList.remove('red', 'yellow', 'green');
+            //         if (item.classList.contains('btn-1')) {
+            //             canvas.classList.add('red');
+            //         }
+            //         else if (item.classList.contains('btn-2')) {
+            //             canvas.classList.add('yellow');
+            //         }
+            //         else if (item.classList.contains('btn-3')) {
+            //             canvas.classList.add('green');
+            //         }
+            //     })
+            // })
+
+
+
+
+
+// 1번째 방법.
+            // for (let i = 0; i < buttons.length; i++) {
+            //     buttons[i].addEventListener('click', function () {
+            //         for (let j = 0; j < buttons.length; j++) {
+            //             canvas.classList.remove(color[j]);
+            //         }
+            //         canvas.classList.add(color[i]);
+            //         console.log(color[i]);
+            //     })
+            // }
+
+
+
+        </script>
+
+
+    </body>
+
+</html>
