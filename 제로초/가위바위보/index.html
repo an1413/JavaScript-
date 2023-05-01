@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>가위바위보</title>
+        <style>
+            body {
+                width: 1280px;
+            }
+
+
+            .computer {
+                width: 128px;
+                height: 128px;
+                background: url(./다운로드.png) 0px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="computer">
+            <!-- <img src="./다운로드.png" alt="가위바위보"> 사용 xx background기법으로 이용함. 스프라이트 기법 사용위해서-->
+        </div>
+        <div>
+            <button class="btn" id="scissor">
+                가위
+            </button>
+            <button class="btn" id="rock">
+                주먹
+            </button>
+            <button class="btn" id="paper">
+                보
+            </button>
+        </div>
+
+
+        <!-- 자바스크립트 -->
+        <script>
+            const computer = document.querySelector('.computer');
+            const btns = document.querySelectorAll('.btn');
+
+            let set_RSP = '0'; // 이미지 좌표 (스프라이트기법)
+
+            let RSP_Game = {
+                scissor: '0',
+                rock: '-128px',
+                paper: '135px'
+            }
+
+            function computer_select(set_RSP) {
+                return Object.entries(RSP_Game).find(function (v) {
+                    return v[1] === set_RSP;
+                })[0];
+            }
+
+            const interval = setInterval(() => { // 100초마다 가위바위보 이미지 변경
+                if (set_RSP === RSP_Game.scissor) {
+                    set_RSP = RSP_Game.rock;
+                }
+                else if (set_RSP === RSP_Game.rock) {
+                    set_RSP = RSP_Game.paper;
+                }
+                else { // 보일때
+                    set_RSP = RSP_Game.scissor;
+                }
+                computer.style.background = 'url(./다운로드.png)' + set_RSP;
+            }, 100);
+
+            btns.forEach((i) => {
+
+                i.addEventListener('click', function () {
+                    clearInterval(interval);
+
+
+                    console.log(computer_select(set_RSP));
+                    let my_choice = this.textContent;
+                    // console.log(this.textContent);
+                    console.log(my_choice);
+                    console.log(computer_select(set_RSP))
+
+                    if (my_choice === '가위') { // 가위일 때
+                        // console.log(my_choice);
+                        if (computer_select(set_RSP) === 'scissor') {
+                            console.log('비겼습니다.');
+                        }
+                        else if (computer_select(set_RSP) === 'rock') {
+                            console.log('졌습니다.');
+                        }
+                        else {
+                            console.log('이겼습니다.');
+                        }
+
+                    } else if (my_choice === '바위') { // 바위일 때
+
+                    } else { // 보일 때
+
+                    }
+                })
+            })
+
+
+
+            rock.addEventListener('click', function () {
+                // if (set_RSP === 'com_scissor') {
+                //     console.log('승리');
+                // }
+                // else {
+                //     console.log('패배..');
+                // }
+
+            })
+
+
+
+
+            // computer.style.backgroundPositionX = '-128px'
+            // computer.style.backgroundPositionX = '135px'
+            // computer.style.background = 'url(./다운로드.png)';
+
+
+        </script>
+
+
+    </body>
+
+</html>
