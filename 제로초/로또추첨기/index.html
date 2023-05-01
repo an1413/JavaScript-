@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <style>
+            li {
+                list-style: none;
+            }
+
+            body {
+                margin: 0 auto;
+                box-sizing: border-box;
+                max-width: 1280px;
+                text-align: center;
+                padding: 30px;
+                background-color: #ddd;
+            }
+
+            header {
+                margin-bottom: 50px;
+                font-size: 50px;
+            }
+
+
+            main {
+                background-color: aliceblue;
+                height: 200px;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .balls {
+                margin-bottom: 50px;
+            }
+
+            ul {
+                display: flex;
+                gap: 50px;
+                justify-content: center;
+            }
+
+            li {
+                border: 1px solid #000;
+                padding: 30px;
+                width: 30px;
+                border-radius: 50%;
+                font-size: 40;
+                font-weight: 700;
+            }
+
+            .red {
+                background-color: red;
+            }
+
+            .blue {
+                background-color: blue;
+            }
+
+            .green {
+                background-color: green;
+            }
+
+            .orange {
+                background-color: orange;
+            }
+
+            .yellow {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <header>로또추첨</header>
+    <main>
+        <div class="balls">
+            <ul>
+                <!-- <li class="ball-1">1</li>
+                <li class="ball-2">2</li>
+                <li class="ball-3">3</li>
+                <li class="ball-4">4</li>
+                <li class="ball-5">5</li>
+                <li class="ball-6">6</li>
+                <li class="bonus">14</li> -->
+            </ul>
+        </div>
+
+    </main>
+
+    <body>
+        <script>
+
+
+            function shuffleArray(array) { // 배열 내 값 섞는 함수
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            function ballColor(balls, i) {
+                if (balls[i] > 0 && balls[i] < 11) {
+                    li.classList.add('red')
+                }
+                else if (balls[i] < 21) {
+                    li.classList.add('blue')
+                }
+                else if (balls[i] < 31) {
+                    li.classList.add('green')
+                }
+                else if (balls[i] < 41) {
+                    li.classList.add('orange');
+                }
+                else {
+                    li.classList.add('yellow');
+                }
+            }
+
+            let arr = Array(45).fill().map((v, i) => i + 1);
+            console.log(arr);
+            let mix_arr = shuffleArray(arr);
+            console.log(mix_arr); // 배열 섞음
+
+            let balls = []; // 당첨공 넣는 빈배열
+            let i = 0;
+
+
+            for (let i = 0; i < 6; i++) { // 당첨공 6개 생성
+                balls.push(mix_arr[mix_arr.length - 1 - i])
+            }
+            let bonus_ball = [];
+
+            bonus_ball.push(mix_arr[0]) // 보너스볼 생성
+
+            console.log(balls);
+            console.log(bonus_ball);
+
+            const ul = document.querySelector('ul');
+
+            function showBall() {
+                for (let i = 0; i < 6; i++) {
+                    setTimeout(() => {
+                        const li = document.createElement('li');
+                        li.className = 'color-' + i;
+                        li.textContent = balls[i];
+                        ul.append(li);
+
+                        if (balls[i] > 0 && balls[i] < 11) {
+                            li.classList.add('red')
+                        }
+                        else if (balls[i] < 21) {
+                            li.classList.add('blue')
+                        }
+                        else if (balls[i] < 31) {
+                            li.classList.add('green')
+                        }
+                        else if (balls[i] < 41) {
+                            li.classList.add('orange');
+                        }
+                        else {
+                            li.classList.add('yellow');
+                        }
+                    }, 1000 * (i + 1))
+                }
+            }
+
+            showBall();
+
+            function bonusBall() {
+                setTimeout(() => {
+                    const li = document.createElement('li');
+                    li.textContent = bonus_ball[0];
+                    ul.append(li);
+                    if (balls[i] > 0 && balls[i] < 11) {
+                        li.classList.add('red')
+                    }
+                    else if (balls[i] < 21) {
+                        li.classList.add('blue')
+                    }
+                    else if (balls[i] < 31) {
+                        li.classList.add('green')
+                    }
+                    else if (balls[i] < 41) {
+                        li.classList.add('orange');
+                    }
+                    else {
+                        li.classList.add('yellow');
+                    }
+                    main.appendChild(button)
+                }, 7000)
+            }
+            bonusBall();
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+    </body>
+
+</html>

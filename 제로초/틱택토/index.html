@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+        <style>
+            tr,
+            td {
+                border: 1px solid #000;
+            }
+
+            body {
+                font-size: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <!-- <table>
+            <tr>
+                <td> 1</td>
+                <td>2 </td>
+                <td>3 </td>
+            </tr>
+            <tr>
+                <td>4 </td>
+                <td>5 </td>
+                <td>6 </td>
+            </tr>
+            <tr>
+                <td> 7</td>
+                <td>8 </td>
+                <td>9 </td>
+            </tr>
+        </table> -->
+        <script>
+            // let 배열 = [
+            //     [1, 2, 3],
+            //     [4, 5, 6],
+            //     [7, 8, 9]
+            // ]
+
+            const body = document.querySelector('body');
+            const table = document.createElement('table');
+            // const tr = document.createElement('tr'); // 줄
+            // const td = document.createElement('td'); // 칸
+
+            const 칸들 = [];
+
+            body.append(table);
+            for (let i = 1; i <= 3; i++) {
+                let 줄 = document.createElement('tr');
+                칸들.push([]);
+                for (let j = 1; j <= 3; j++) {
+                    var 칸 = document.createElement('td');
+                    칸.addEventListener('click', function 비동기콜백() {
+                        ㅇㄻㅁㅇㄴ
+                    });
+                    칸들[i - 1].push(칸);
+                    줄.append(칸);
+                }
+                table.appendChild(줄);
+            }
+            body.appendChild(table);
+            console.log(칸들);
+
+            // let 배열 = [];
+            // for (let i = 0; i < 3; i++) {
+            //     배열.push([]);
+
+            //     for (let j = 0; j < 3; j++) {
+
+            //     }
+            // }
+
+
+        </script>
+
+    </body>
+
+</html>
