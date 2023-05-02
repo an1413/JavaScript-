@@ -1,15 +1,31 @@
-class ColaGenerator {
+class ColaGenerator {  // 콜라만 생성하는 클래스
     constructor() {
         this.itemList = document.querySelector('.section1 .cola-list');
     }
 
-    async setup() {
+    async setup() {  // 출발점이 되는 메소드..
         const response = await this.loadData();
         this.colaFactory(response);
     }
 
+    // async loadData() {
+    //     const response = fetch('./items.json');  //json
 
-    async loadData() {
+    //     try {
+    //         if(response.ok) {
+    //         return response.json();
+    //     } else {
+    //         throw new Error(response.status);
+    //     }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+        
+    
+
+
+    async loadData() { // items.json을 불러오는 메소드
         try {
             const response = await fetch('./items.json');  //json으로부터 받는 데이터
 
