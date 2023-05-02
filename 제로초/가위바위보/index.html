@@ -75,15 +75,13 @@
                 i.addEventListener('click', function () {
                     clearInterval(interval);
 
-
-                    console.log(computer_select(set_RSP));
+                    // console.log(computer_select(set_RSP));
                     let my_choice = this.textContent;
                     // console.log(this.textContent);
                     console.log(my_choice);
                     console.log(computer_select(set_RSP))
-
                     if (my_choice === '가위') { // 가위일 때
-                        // console.log(my_choice);
+                        console.log(my_choice);
                         if (computer_select(set_RSP) === 'scissor') {
                             console.log('비겼습니다.');
                         }

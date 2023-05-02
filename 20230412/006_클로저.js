@@ -139,3 +139,11 @@ function 제곱(x) {
 }
 
 let 제곱2 = 제곱(2) // 2 제곱해주는 함수
+
+
+
+for(let i = 0; i < 20; i++) {
+    setTimeout( function() {
+        console.log('hihi' + i);
+    } , i * 1000)
+}
