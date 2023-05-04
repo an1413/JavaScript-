@@ -1,33 +1,17 @@
-class ColaGenerator {  // 콜라만 생성하는 클래스
+class ColaGenerator {
     constructor() {
         this.itemList = document.querySelector('.section1 .cola-list');
     }
 
-    async setup() {  // 출발점이 되는 메소드..
+    async setup() {
         const response = await this.loadData();
         this.colaFactory(response);
     }
 
-    // async loadData() {
-    //     const response = fetch('./items.json');  //json
 
-    //     try {
-    //         if(response.ok) {
-    //         return response.json();
-    //     } else {
-    //         throw new Error(response.status);
-    //     }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-        
-    
-
-
-    async loadData() { // items.json을 불러오는 메소드
+    async loadData() {
         try {
-            const response = await fetch('./items.json');  //json으로부터 받는 데이터
+            const response = await fetch('./items.json');
 
             if (response.ok) { // 서버의 응답 코드가 200 ~ 299 일 경우
                 return response.json();
@@ -59,3 +43,19 @@ class ColaGenerator {  // 콜라만 생성하는 클래스
 }
 
 export default ColaGenerator;
+
+    // async loadData() {
+    //     const response = fetch('./items.json');  //json
+
+    //     try {
+    //         if(response.ok) {
+    //         return response.json();
+    //     } else {
+    //         throw new Error(response.status);
+    //     }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+        
+    
