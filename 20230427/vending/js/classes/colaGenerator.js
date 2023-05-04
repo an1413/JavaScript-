@@ -1,4 +1,4 @@
-class ColaGenerator {
+class ColaGenerator {  // ColaGenerator 생성기 (클래스를 먼저 만든다.)
     constructor() {
         this.itemList = document.querySelector('.section1 .cola-list');
     }
@@ -9,14 +9,16 @@ class ColaGenerator {
     }
 
 
-    async loadData() {
-        try {
+
+    async loadData() { // item.json에서 데이터 받아오는 함수 await를 사용하기 때문에 async 작성 필수.
+        try {  // then이 없기 때문에 try, catch 구문 사용필수다 ~!
+            // const response = await fetch('./items.json');
             const response = await fetch('./items.json');
 
             if (response.ok) { // 서버의 응답 코드가 200 ~ 299 일 경우
-                return response.json();
+                return response.json(); // response 값 줘야지! json 파일로 준다~~
             } else {
-                throw new Error(response.status);
+                throw new Error(response.status);   // 에러 발생시 리스폰스 상태 반환.
             }
         } catch (error) {
             console.log(error);

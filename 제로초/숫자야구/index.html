@@ -6,22 +6,109 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>숫자야구</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     </head>
 
     <body>
 
-        <!-- <div>숫자야구 숫자제시</div>
-        <form action="">
-            <input type="text">
-            <button>입력</button>
-        </form>
-        <div>정답 or 틀림!!</div> -->
+        <div class="nes-container with-title is-centered">
+            <p class="title">Play Number baseball</p>
+            <p>Hi Guys~ Do you want to play mini-game?</p>
+        </div>
+
+        <div class="nes-container is-dark with-title">
+            <p class="title">숫자야구</p>
+            <p class="question"></p>
+            <div class="lists">
+                <ul class="nes-list is-circle">
+                    <!-- <li>Good morning.</li>
+                    <li>Thou hast had a good night's sleep, I hope.</li>
+                    <li>Thou hast had a good afternoon</li>
+                    <li>Good night.</li> -->
+                </ul>
+            </div>
+        </div>
 
 
+        <div class="question">
+            <div class="game-number"></div>
+            <form class="form-content">
+                <input type="text" id="name_field" class="nes-input" maxlength="4">
+                <button class="form-btn">입력</button>
+            </form>
+            <div class="form-answer"></div>
+        </div>
+
+
+        <section class="icon-list">
+            <i class="nes-logo"></i>
+            <i class="nes-jp-logo"></i>
+            <i class="snes-logo"></i>
+            <i class="snes-jp-logo"></i>
+        </section>
+
+
+        <progress class="nes-progress" value="0" max="100"></progress>
+
+        <div class="btn-group">
+            <section>
+                <button type="button" class="nes-btn is-primary"
+                    onclick="document.getElementById('dialog-default').showModal();">
+                    게임제작이유
+                </button>
+                <dialog class="nes-dialog" id="dialog-default">
+                    <form method="dialog">
+                        <p class="title">Dialog</p>
+                        <p>심심해서 만들었습니다.</p>
+                        <menu class="dialog-menu">
+                            <button class="nes-btn">Cancel</button>
+                            <button class="nes-btn is-primary">Confirm</button>
+                        </menu>
+                    </form>
+                </dialog>
+            </section>
+
+            <!-- Rounded dialog -->
+            <section>
+                <button type="button" class="nes-btn is-primary"
+                    onclick="document.getElementById('dialog-rounded').showModal();">
+                    게임설명
+                </button>
+                <dialog class="nes-dialog is-rounded" id="dialog-rounded">
+                    <form method="dialog">
+                        <p class="title">숫자야구 규칙안내</p>
+
+                        <p> 1) 3자리 숫자와 위치가 모두 맞아야 성공입니다.<br>
+                            2) 숫자는 0~9까지 구성되어 있으며, 각 숫자는 한번씩만 사용 가능합니다 <br>
+                            3) 숫자와 자리의 위치가 맞으면 스트라이크(S), 숫자만 맞으면 볼(B) 입니다. <br>
+                            4) 숫자가 하나도 맞지 않을 경우 아웃(OUT) 으로 표시됩니다. <br>
+
+                            예시) 감춰진 숫자가 123 이라고 할 경우
+                            - a. 102 = 1S 1B
+                            - b. 124 = 2S</p>
+                        <menu class="dialog-menu">
+                            <button class="nes-btn">Cancel</button>
+                            <button class="nes-btn is-primary">Confirm</button>
+                        </menu>
+                    </form>
+                </dialog>
+            </section>
+        </div>
+
+        <ul class="remember-list">
+            <!-- <li></li> -->
+        </ul>
+
+
+        <!-- Script ------------------------------------------------------------------->
         <script>
 
             let 숫자생성기;
             let 숫자문제;
+            let num_list = []; // 적었던 배열 기억하기
 
             function 숫자뽑기() {
                 숫자생성기 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -36,34 +123,36 @@
             숫자뽑기()
             console.log(숫자문제);
             const body = document.querySelector('body');
-            const 숫자제시 = document.createElement('div');
-            숫자제시.textContent = '숫자를 맞춰보세요';
+            const question = document.querySelector('.question');
+            const 숫자제시 = document.querySelector('.game-number');
+            숫자제시.textContent = '4자리 숫자를 맞춰보세요';
 
             // 랜덤숫자 나와있음 = ex) 1392
-            const form = document.createElement('form');
-            const input = document.createElement('input');
+            const form = document.querySelector('.form-content');
+            // const input = document.createElement('input');
+            const input = document.querySelector('.nes-input')
             input.maxLength = 4;
-            const button = document.createElement('button');
+            const button = document.querySelector('.form-btn');
             button.textContent = '입력';
 
-            const 정답 = document.createElement('div');
+            const 정답 = document.querySelector('.form-answer');
+            const rememberList = document.querySelector('.remember-list');
 
-            body.append(숫자제시, form, 정답);
+            question.append(숫자제시, form, 정답);
 
             form.append(input, button);
-
 
             var 틀린횟수 = 0;
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
                 if (숫자문제.join('') === input.value) {
-
                     console.log(input.value.split(''));
                     정답.textContent = '홈런 ~~!'
                     input.value = '';
                     input.focus();
                     console.log(input.value);
-
+                    num_list.push(input.value);
+                    console.log(num_list);
                     숫자뽑기();
                     틀린횟수 = 0;
                 }
@@ -72,8 +161,13 @@
                     let 스트라이크 = 0;
                     let 볼 = 0;
                     틀린횟수++;
+                    num_list.push(input.value);
+                    console.log(num_list);
+                    const rememberLi = document.createElement('li');
+                    rememberLi.textContent = input.value;
+                    rememberList.append(rememberLi);
 
-                    if (틀린횟수 > 10) {
+                    if (틀린횟수 > 15) {
                         정답.textContent = `10번넘게 틀림!~ 정답은 ${숫자문제.join('')}입니다.`
                         숫자뽑기();
                         틀린횟수 = 0;
@@ -88,9 +182,9 @@
                                 input.value = '';
                                 input.focus();
                             }
-                            정답.textContent = `스트라이크 : ${스트라이크} 볼 : ${볼} 현재 ${10 - 틀린횟수}번의 기회가 남아있습니다.`
-                            
-
+                            정답.textContent = `스트라이크:${스트라이크}   볼:${볼}   
+                            현재 ${15 - 틀린횟수}번의 기회가 남아있습니다.`;
+                            rememberLi = rememberLi.textContent + `${스트라이크}S ${볼}B`
                         }
                     }
                 }
