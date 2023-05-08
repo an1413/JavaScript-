@@ -55,3 +55,5 @@ function message() {
 }
 
 message();
+
+npx create-react-app 생성할폴더명 --template basic-react

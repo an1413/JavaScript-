@@ -263,3 +263,30 @@ function f() {
 }
 
 f();
+
+
+function delay(ms) {
+    setTimeout(() => {
+
+    }, ms)
+}
+
+async function printBanana() {
+    await delay(1000);
+    return 'banana';
+}
+
+async function printApple() {
+    await delay(1000);
+    return 'apple';
+}
+
+async function printFruits() {
+    const promiseba = printBanana();
+    const promiseap = printApple();
+    const banana = await printBanana();
+    const apple = await printApple();
+    return `${banana}, ${apple}`;
+}
+
+printFruits().then(console.log);

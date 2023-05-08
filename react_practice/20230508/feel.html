@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>오늘의 기분</title>
+        <style>
+            .selected {
+                background-color: aquamarine;
+            }
+
+            body {
+                width: 250px;
+                margin: 0 auto;
+            }
+
+            h1 {
+                font-size: large;
+                font-style: bold;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            form button {
+                height: 50px;
+            }
+
+            .how-feel {
+                border: 2px solid #000;
+                border-radius: 20px;
+                height: 200px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: large;
+                font-weight: 700;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>오늘의 기분을 선택해주세요</h1>
+
+        <form>
+            <button class="1">기분이 : 좋아요!</button>
+            <button class="2">기분이 : 정말 좋아요!</button>
+            <button class="3">기분이 : 최고에요!</button>
+            <button class="4">기분이 : 미쳤어요!</button>
+
+            <div class="how-feel">
+            </div>
+        </form>
+
+
+        <script>
+            const form = document.querySelector('form');
+            const btns = document.querySelectorAll('button');
+            const howbox = document.querySelector('.how-feel');
+
+
+            btns.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    // console.log(e);
+                    e.preventDefault();
+                    item.classList.toggle('selected');
+                    const text = e.target.textContent;
+                    howbox.textContent = text;
+                })
+            })
+
+
+        </script>
+    </body>
+
+</html>
+
