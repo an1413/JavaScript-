@@ -49,6 +49,8 @@ function App() {
         </div>
 
         <TripList />
+
+        <h1>반갑습니다~</h1>
     </div>
   );
 }

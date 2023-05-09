@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+
+    <body>
+
+        <div id="root"></div>
+
+        <script type="text/babel">
+
+            function Header(props) {
+                console.log(props);
+                return (
+                    <div>
+                        <div>hello {props.name} world shop</div>
+                        <div>{props.age}</div>
+                    </div>
+                )
+            }
+
+            function Product() {
+                return (
+                    <div>
+                        <h2>hello world!</h2>
+                        <p>product list</p>
+                        <ul>
+                            <li>best seller 옷1</li>
+                            <li>best seller 옷2</li>
+                            <li>best seller 옷3</li>
+                            <li>best seller 옷4</li>
+                            <li>best seller 옷5</li>
+                            <li>best seller 옷6</li>
+                            <li>best seller 옷7</li>
+                            <li>best seller 옷8</li>
+                            <li>best seller 옷9</li>
+                            <li>best seller 옷10</li>
+                        </ul>
+                    </div>
+                )
+            }
+
+            function Test(props) {
+                console.log(props);
+                return null;
+            }
+
+            function Footer() {
+                return <div>footer</div>
+            }
+
+            const login = false;
+
+            const body = (
+                <div>
+                    {Header('about', 'product')}
+                    <Header name={'nastar'} age={10} />
+                    <Product />
+                    <Footer />
+                    {login ? <Product /> : <Footer />}
+                    <Test>
+                        hello world
+                        <h1>hello</h1>
+                        <Footer />
+                    </Test>
+
+                </div>
+            )
+
+
+            const domContainer = document.querySelector('#root');
+            const root = ReactDOM.createRoot(domContainer);
+            root.render(body);
+        </script>
+    </body>
+
+</html>
