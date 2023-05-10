@@ -1,6 +1,7 @@
 function start () {
     console.log('start');
     startBtn.classList.add('start');
+    startBtn.textContent('reset');
     // console.log(hrsInput.value);
 }
 //     hrs = hrsInput.value;
@@ -19,7 +20,7 @@ function start () {
 
 function reset () {
     console.log('reset');
-    
+
 }
 
 const hrsInput = document.querySelector('#hrs');
