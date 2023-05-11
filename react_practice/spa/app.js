@@ -89,3 +89,4 @@ function router() {
 window.addEventListener('hashchange', router);
 
 router();
+
