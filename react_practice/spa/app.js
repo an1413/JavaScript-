@@ -23,6 +23,7 @@ async function getData(url) {
     }
 }
 
+npx create-react-app 생성할폴더명 --template basic-react
 
 async function newsFeed() {
     const newsFeed = await getData(NEWSLIST_URL);

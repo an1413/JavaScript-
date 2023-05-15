@@ -1,0 +1,15 @@
+section {
+    margin-top: 90px;
+    display: flex;
+    text-align: left;
+    padding: 0 20px;
+}
+
+article .article-title {
+    margin-bottom: 20px;
+    height: 70px;
+}
+
+article .sub-content {
+    margin-top: 30px;
+}

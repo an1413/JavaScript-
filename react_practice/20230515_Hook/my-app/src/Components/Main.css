@@ -1,0 +1,40 @@
+main {
+    padding: 60px 0;
+    color: #fff;
+    background-color: #282c34;
+}
+
+main h2 {
+    font-size: 45px;
+    color: #61DAF8;
+}
+
+main p {
+    font-size: 24px;
+    padding-top: 15px;
+}
+
+main .btn-group {
+    padding-top: 40px;
+}
+
+main button {
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+}
+
+.btn-group .btn-start {
+    background-color: #61DAF8;
+    color: #000;
+    margin: 0px 7px;
+}
+
+.btn-group .btn-go {
+    padding: 0 7px 0 15px;
+    color: #61DAF8;
+}
+
+
+
+
